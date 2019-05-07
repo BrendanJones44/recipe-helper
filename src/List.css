@@ -1,0 +1,18 @@
+.List-box {
+  min-width: 300px;
+  margin: 20px;
+  min-height: 500px;
+  padding: 10px;
+}
+.List-item {
+  min-width: 100px;
+  margin: 20px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.Recipe-item {
+  min-width: 100px;
+  margin: 20px;
+  padding: 20px;
+}
