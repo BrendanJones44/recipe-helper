@@ -2,14 +2,14 @@ import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import './List.css';
-import ListItem from './ListItem';
+import PantryItem from './PantryItem';
 import ItemsContext from './context/items-context';
-function List(props) {
-  const { name } = props;
+
+function Pantry() {
   return (
     <Paper className="List-box">
       <Typography variant="h5">
-        { name }
+        My Pantry
       </Typography>
       <ItemsContext.Consumer>
       { context => (
@@ -19,7 +19,7 @@ function List(props) {
             return (
               count > 0
                 ?
-                <ListItem name={item} count={count}/>
+                <PantryItem name={item} count={count}/>
                 : null
             )
           })}
@@ -30,4 +30,4 @@ function List(props) {
   )
 }
 
-export default List;
+export default Pantry;
