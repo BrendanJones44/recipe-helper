@@ -3,6 +3,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import './List.css';
 import RecipeItem from './RecipeItem';
+import { connect } from 'react-redux';
 
 function Recipe(props) {
   const { kitchenItems } = props;
@@ -28,4 +29,10 @@ function Recipe(props) {
   )
 }
 
-export default Recipe;
+const mapStateToProps = (state) => {
+  return {
+    kitchenItems: state.kitchenItems
+  }
+}
+
+export default connect(mapStateToProps)(Recipe);
