@@ -7,7 +7,7 @@ import Recipe from './Recipe';
 
 import ItemsProvider from './context/ItemsProvider';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <ItemsProvider>
@@ -16,7 +16,7 @@ function App() {
         <Recipe />
       </ItemsProvider>
     </div>
-);
+  )
 }
 
 export default App;

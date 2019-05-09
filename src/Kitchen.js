@@ -5,7 +5,7 @@ import './List.css';
 import KitchenItem from './KitchenItem';
 import ItemsContext from './context/items-context';
 
-function Kitchen() {
+const Kitchen = () => {
   return (
     <Paper className="List-box">
       <Typography variant="h5">
@@ -17,10 +17,7 @@ function Kitchen() {
             {Object.keys(context.kitchenItems).map(function (item) {
               const count = context.kitchenItems[item];
               return (
-                count > 0
-                  ?
-                  <KitchenItem name={item} count={count} />
-                  : null
+                count > 0 ?<KitchenItem name={item} count={count} /> : null
               )
             })}
           </React.Fragment>

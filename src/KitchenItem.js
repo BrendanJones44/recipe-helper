@@ -4,9 +4,10 @@ import Typography from '@material-ui/core/Typography';
 import Fab from '@material-ui/core/Fab';
 import RemoveIcon from '@material-ui/icons/Remove';
 import ItemsContext from './context/items-context';
+
 import './List.css';
 
-function KitchenItem(props) {
+const KitchenItem = props => {
   return (
     <Paper className="List-item">
       <Typography variant="h6" align={'left'}>
@@ -14,7 +15,13 @@ function KitchenItem(props) {
       </Typography>
       <ItemsContext.Consumer>
         {context => (
-          <Fab className="List-button" data={props.name} size="small" color="secondary" onClick={context.removeKitchenItem.bind(this, props.name)}>
+          <Fab
+            className="List-button" 
+            data={props.name} 
+            size="small" 
+            color="secondary" 
+            onClick={context.removeKitchenItem.bind(this, props.name)}
+          >
             <RemoveIcon />
           </Fab>
         )}

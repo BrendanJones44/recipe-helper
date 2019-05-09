@@ -6,7 +6,7 @@ import RemoveIcon from '@material-ui/icons/Remove';
 import ItemsContext from './context/items-context';
 import './List.css';
 
-function PantryItem(props) {
+const PantryItem = props => {
   return (
     <Paper className="List-item">
       <Typography variant="h6" align={'left'}>
@@ -14,7 +14,13 @@ function PantryItem(props) {
       </Typography>
       <ItemsContext.Consumer>
         {context => (
-          <Fab className="List-button" data={props.name} size="small" color="secondary" onClick={context.removePantryItem.bind(this, props.name)}>
+          <Fab
+            className="List-button"
+            data={props.name}
+            size="small"
+            color="secondary"
+            onClick={context.removePantryItem(props.name)}
+          >
             <RemoveIcon />
           </Fab>
         )}

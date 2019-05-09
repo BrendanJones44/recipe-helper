@@ -5,22 +5,19 @@ import './List.css';
 import PantryItem from './PantryItem';
 import ItemsContext from './context/items-context';
 
-function Pantry() {
+const Pantry = () => {
   return (
     <Paper className="List-box">
       <Typography variant="h5">
         My Pantry
       </Typography>
       <ItemsContext.Consumer>
-      { context => (
+      {context => (
         <React.Fragment>
           {Object.keys(context.pantryItems).map(function(item) {
             const count = context.pantryItems[item];
             return (
-              count > 0
-                ?
-                <PantryItem name={item} count={count}/>
-                : null
+              count > 0 ?< PantryItem name={item} count={count}/> : null
             )
           })}
         </React.Fragment>

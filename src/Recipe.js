@@ -5,7 +5,7 @@ import './List.css';
 import RecipeItem from './RecipeItem';
 import ItemsContext from './context/items-context';
 
-function Recipe() {
+const Recipe = () => {
   const recipeInfo = {
     Kiwis: 3,
     Bananas: 2
@@ -21,7 +21,6 @@ function Recipe() {
             {Object.keys(recipeInfo).map(function (item) {
               const numRequired = recipeInfo[item]
               const difference = recipeInfo[item] - context.kitchenItems[item];
-              console.log("defined?")
               // Don't display negative numbers
               const numRemaining = difference < 0 ? 0 : difference;
               return <RecipeItem name={item} numRequired={numRequired} numRemaining={numRemaining} />
