@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import './List.css';
 import ListItem from './ListItem';
 
-function List(props) {
+const List = props => {
   const { items, name, onItemButtonPress } = props;
   const listItems = Object.keys(items).map(function(item) {
     const count = items[item];
