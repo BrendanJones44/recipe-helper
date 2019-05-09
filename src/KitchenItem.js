@@ -15,7 +15,13 @@ const KitchenItem = props => {
       </Typography>
       <ItemsContext.Consumer>
         {context => (
-          <Fab className="List-button" data={props.name} size="small" color="secondary" onClick={context.removeKitchenItem.bind(this, props.name)}>
+          <Fab
+            className="List-button" 
+            data={props.name} 
+            size="small" 
+            color="secondary" 
+            onClick={context.removeKitchenItem.bind(this, props.name)}
+          >
             <RemoveIcon />
           </Fab>
         )}

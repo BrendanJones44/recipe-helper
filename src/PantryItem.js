@@ -14,7 +14,13 @@ const PantryItem = props => {
       </Typography>
       <ItemsContext.Consumer>
         {context => (
-          <Fab className="List-button" data={props.name} size="small" color="secondary" onClick={context.removePantryItem.bind(this, props.name)}>
+          <Fab
+            className="List-button"
+            data={props.name}
+            size="small"
+            color="secondary"
+            onClick={context.removePantryItem.bind(this, props.name)}
+          >
             <RemoveIcon />
           </Fab>
         )}
