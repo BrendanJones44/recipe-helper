@@ -15,38 +15,38 @@ const initialKitchenItems = {
   Blueberries: 0
 }
 
-const initialState = {
+const initialItems = {
   pantryItems: initialPantryItems,
   kitchenItems: initialKitchenItems
 }
 
-export default function itemsReducer(state = initialState, { type, itemName }) {
+export default function itemsReducer(items = initialItems, { type, itemName }) {
   switch (type) {
     case TAKE_PANTRY_ITEM:    
       return {
-        ...state,
+        ...items,
         pantryItems: {
-          ...state.pantryItems,
-          ...state.pantryItems[itemName] -= 1
+          ...items.pantryItems,
+          ...items.pantryItems[itemName] -= 1
         },
         kitchenItems: {
-          ...state.kitchenItems,
-          ...state.kitchenItems[itemName] += 1
+          ...items.kitchenItems,
+          ...items.kitchenItems[itemName] += 1
         }
       }
     case TAKE_KITCHEN_ITEM:
       return {
-        ...state,
+        ...items,
         pantryItems: {
-          ...state.pantryItems,
-          ...state.pantryItems[itemName] += 1
+          ...items.pantryItems,
+          ...items.pantryItems[itemName] += 1
         },
         kitchenItems: {
-          ...state.kitchenItems,
-          ...state.kitchenItems[itemName] -= 1
+          ...items.kitchenItems,
+          ...items.kitchenItems[itemName] -= 1
         }
       }
     default:
-      return state;
+      return items;
   }
 }
