@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ItemsContext from './items-context';
 
 const initialPantryItems = {
@@ -15,45 +15,55 @@ const initialKitchenItems = {
   Blueberries: 0
 }
 
-class ItemsProvider extends React.Component {
-  state = {
-    pantryItems: initialPantryItems,
-    kitchenItems: initialKitchenItems
-  }
+const initialItems = {
+  pantryItems: initialPantryItems,
+  kitchenItems: initialKitchenItems
+}
 
-  removePantryItem = (itemName) => {
-    const { pantryItems, kitchenItems } = this.state;
-    pantryItems[itemName] -= 1;
-    kitchenItems[itemName] += 1;
-    this.setState({
-      pantryItems,
-      kitchenItems
-    })
+const ItemsProvider = props => {
+  const [items, setItems] = useState(initialItems);
+
+  const removePantryItem = (itemName) => {
+    const updatedItems = {
+      ...items,
+      pantryItems: {
+        ...items.pantryItems,
+        ...items.pantryItems[itemName] -= 1
+      },
+      kitchenItems: {
+        ...items.kitchenItems,
+        ...items.kitchenItems[itemName] += 1
+      }
+    }
+    setItems(updatedItems);
   };
 
-  removeKitchenItem = (itemName) => {
-    const { pantryItems, kitchenItems } = this.state;
-    pantryItems[itemName] += 1;
-    kitchenItems[itemName] -= 1;
-    this.setState({
-      pantryItems,
-      kitchenItems
-    })
+  const removeKitchenItem = (itemName) => {
+    const updatedItems = {
+      ...items,
+      pantryItems: {
+        ...items.pantryItems,
+        ...items.pantryItems[itemName] += 1
+      },
+      kitchenItems: {
+        ...items.kitchenItems,
+        ...items.kitchenItems[itemName] -= 1
+      }
+    }
+    setItems(updatedItems);
   };
 
-  render() {
-    return (
-      <ItemsContext.Provider value={{
-        pantryItems: this.state.pantryItems,
-        kitchenItems: this.state.kitchenItems,
-        removeKitchenItem: this.removeKitchenItem,
-        removePantryItem: this.removePantryItem
-        }}
-      >
-        {this.props.children}
-      </ItemsContext.Provider>
-    )
-  }
+  return (
+    <ItemsContext.Provider value={{
+      pantryItems: items.pantryItems,
+      kitchenItems: items.kitchenItems,
+      removeKitchenItem: removeKitchenItem,
+      removePantryItem: removePantryItem
+      }}
+    >
+      {props.children}
+    </ItemsContext.Provider>
+  )
 }
 
 export default ItemsProvider;
