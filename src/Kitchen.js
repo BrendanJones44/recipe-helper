@@ -17,10 +17,7 @@ const Kitchen = () => {
             {Object.keys(context.kitchenItems).map(function (item) {
               const count = context.kitchenItems[item];
               return (
-                count > 0
-                  ?
-                  <KitchenItem name={item} count={count} />
-                  : null
+                count > 0 ?<KitchenItem name={item} count={count} /> : null
               )
             })}
           </React.Fragment>
