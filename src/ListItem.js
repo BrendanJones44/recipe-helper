@@ -5,7 +5,7 @@ import Fab from '@material-ui/core/Fab';
 import RemoveIcon from '@material-ui/icons/Remove';
 import './List.css';
 
-function ListItem(props) {
+const ListItem = props => {
   const handleClick = () => {
     props.onItemButtonPress(props.name);
   }
