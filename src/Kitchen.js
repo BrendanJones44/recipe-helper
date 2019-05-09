@@ -5,7 +5,7 @@ import './List.css';
 import KitchenItem from './KitchenItem';
 import ItemsContext from './context/items-context';
 
-function Kitchen() {
+const Kitchen = () => {
   return (
     <Paper className="List-box">
       <Typography variant="h5">

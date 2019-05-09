@@ -6,7 +6,7 @@ import RemoveIcon from '@material-ui/icons/Remove';
 import ItemsContext from './context/items-context';
 import './List.css';
 
-function PantryItem(props) {
+const PantryItem = props => {
   return (
     <Paper className="List-item">
       <Typography variant="h6" align={'left'}>

@@ -5,7 +5,7 @@ import './List.css';
 import RecipeItem from './RecipeItem';
 import ItemsContext from './context/items-context';
 
-function Recipe() {
+const Recipe = () => {
   const recipeInfo = {
     Kiwis: 3,
     Bananas: 2

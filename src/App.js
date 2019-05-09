@@ -1,14 +1,13 @@
 import React from 'react';
 import './App.css';
 
-import List from './List';
 import Pantry from './Pantry';
 import Kitchen from './Kitchen';
 import Recipe from './Recipe';
 
 import ItemsProvider from './context/ItemsProvider';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <ItemsProvider>

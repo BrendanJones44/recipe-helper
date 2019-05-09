@@ -4,9 +4,10 @@ import Typography from '@material-ui/core/Typography';
 import Fab from '@material-ui/core/Fab';
 import RemoveIcon from '@material-ui/icons/Remove';
 import ItemsContext from './context/items-context';
+
 import './List.css';
 
-function KitchenItem(props) {
+const KitchenItem = props => {
   return (
     <Paper className="List-item">
       <Typography variant="h6" align={'left'}>
