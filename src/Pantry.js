@@ -23,7 +23,7 @@ const Pantry = props => {
   )
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     items: state.pantryItems
   }

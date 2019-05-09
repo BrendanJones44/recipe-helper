@@ -23,9 +23,8 @@ const Kitchen = props => {
   )
 }
 
-const mapStateToProps = (state, props) => {
+const mapStateToProps = state => {
   return {
-    name: props.name,
     items: state.kitchenItems
   }
 }
