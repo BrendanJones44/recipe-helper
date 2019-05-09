@@ -16,7 +16,7 @@ const Recipe = props => {
 
     // Don't display negative numbers
     const numRemaining = difference < 0 ? 0 : difference;
-    return <RecipeItem name={item} numRequired={numRequired} numRemaining={numRemaining } />
+    return <RecipeItem name={item} numRequired={numRequired} numRemaining={numRemaining} />
   })
   return (
     <Paper className="List-box">
