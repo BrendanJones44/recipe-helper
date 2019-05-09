@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import './List.css';
 import RecipeItem from './RecipeItem';
 
-function Recipe(props) {
+const Recipe = props => {
   const { kitchenItems } = props;
   const recipeInfo = {
     Kiwis: 3,
