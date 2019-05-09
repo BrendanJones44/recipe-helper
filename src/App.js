@@ -1,63 +1,26 @@
 import React from 'react';
 import './App.css';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux'
 
-import List from './List';
+import Kitchen from './Kitchen';
 import Recipe from './Recipe';
+import Pantry from './Pantry';
 
-const initialPantryItems = {
-  Strawberries: 5,
-  Bananas: 2,
-  Kiwis: 4,
-  Blueberries: 10
-}
+import itemsReducer from './reducers/items-reducer';
 
-const initialKitchenItems = {
-  Strawberries: 0,
-  Bananas: 0,
-  Kiwis: 0,
-  Blueberries: 0
-}
+const store = createStore(itemsReducer);
 
-class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      pantryItems: initialPantryItems,
-      counterItems: initialKitchenItems
-    }
-    this.removePantryItem = this.removePantryItem.bind(this);
-    this.removeKitchenItem = this.removeKitchenItem.bind(this);
-  }
-
-  removePantryItem(itemName) {
-    const { pantryItems, counterItems } = this.state;
-    pantryItems[itemName] -= 1;
-    counterItems[itemName] += 1;
-    this.setState({
-      pantryItems,
-      counterItems
-    })
-  };
-
-  removeKitchenItem(itemName) {
-    const { pantryItems, counterItems } = this.state;
-    pantryItems[itemName] += 1;
-    counterItems[itemName] -= 1;
-    this.setState({
-      pantryItems,
-      counterItems
-    })
-  };
-
-  render() {
-    return (
-      <div className="App">
-        <List name="My Pantry" items={this.state.pantryItems} onItemButtonPress={this.removePantryItem} />
-        <List name="My Kitchen Counter" items={this.state.counterItems} onItemButtonPress={this.removeKitchenItem}/>
-        <Recipe kitchenItems={this.state.counterItems}/>
-      </div>
-    );
-  }
+const App = () => {
+  return (
+    <div className="App">
+      <Provider store={store}>
+        <Pantry />
+        <Kitchen />
+        <Recipe/>
+      </Provider>
+    </div>
+  );
 }
 
 export default App;

@@ -3,9 +3,13 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Fab from '@material-ui/core/Fab';
 import RemoveIcon from '@material-ui/icons/Remove';
+import { connect } from 'react-redux';
+
+import { takeKitchenItem } from './actions/take-kitchen-item';
+
 import './List.css';
 
-const ListItem = props => {
+function KitchenItem(props) {
   const handleClick = () => {
     props.onItemButtonPress(props.name);
   }
@@ -20,5 +24,7 @@ const ListItem = props => {
     </Paper>
   )
 }
-
-export default ListItem;
+const mapActionsToProps = (dispatch, props) => ({
+  onItemButtonPress: () => dispatch(takeKitchenItem(props.name))
+})
+export default connect(null, mapActionsToProps)(KitchenItem);
