@@ -5,7 +5,7 @@ import './List.css';
 import RecipeItem from './RecipeItem';
 import { connect } from 'react-redux';
 
-function Recipe(props) {
+const Recipe = props => {
   const { kitchenItems } = props;
   const recipeInfo = {
     Kiwis: 3,
@@ -17,7 +17,7 @@ function Recipe(props) {
 
     // Don't display negative numbers
     const numRemaining = difference < 0 ? 0 : difference;
-    return <RecipeItem name={item} numRequired={numRequired} numRemaining={numRemaining } />
+    return <RecipeItem name={item} numRequired={numRequired} numRemaining={numRemaining} />
   })
   return (
     <Paper className="List-box">

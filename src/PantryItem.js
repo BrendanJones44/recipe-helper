@@ -9,7 +9,7 @@ import { takePantryItem } from './actions/take-pantry-item';
 
 import './List.css';
 
-function PantryItem(props) {
+const PantryItem = props => {
   const handleClick = () => {
     props.onItemButtonPress(props.name);
   }
