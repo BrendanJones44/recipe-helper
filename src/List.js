@@ -9,7 +9,7 @@ const List = props => {
   const listItems = Object.keys(items).map(function(item) {
     const count = items[item];
     return (
-      count > 0 ? <ListItem name={item} count={items[item]} onItemButtonPress={onItemButtonPress}/> : null
+      count > 0 ? <ListItem name={item} count={count} onItemButtonPress={onItemButtonPress}/> : null
     )
   });
   return (
