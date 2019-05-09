@@ -10,7 +10,7 @@ function Kitchen(props) {
   const kitchenItems = Object.keys(items).map(function(item) {
     const count = items[item];
     return (
-      count > 0 ?<KitchenItem name={item} count={count}/> : null
+      count > 0 ? <KitchenItem name={item} count={count}/> : null
     )
   });
   return (
