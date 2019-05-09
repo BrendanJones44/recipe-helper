@@ -5,7 +5,7 @@ import './List.css';
 import KitchenItem from './KitchenItem';
 import { connect } from 'react-redux'
 
-function Kitchen(props) {
+const Kitchen = props => {
   const { items } = props;
   const kitchenItems = Object.keys(items).map(function(item) {
     const count = items[item];
