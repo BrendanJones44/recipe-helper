@@ -19,7 +19,7 @@ const PantryItem = props => {
             data={props.name}
             size="small"
             color="secondary"
-            onClick={context.removePantryItem.bind(this, props.name)}
+            onClick={context.removePantryItem(props.name)}
           >
             <RemoveIcon />
           </Fab>
