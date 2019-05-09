@@ -11,7 +11,7 @@ import itemsReducer from './reducers/items-reducer';
 
 const store = createStore(itemsReducer);
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <Provider store={store}>
