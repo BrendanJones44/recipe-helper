@@ -16,7 +16,7 @@ const App = () => {
         <Recipe />
       </ItemsProvider>
     </div>
-);
+  )
 }
 
 export default App;
