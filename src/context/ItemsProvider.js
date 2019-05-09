@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
 import ItemsContext from './items-context';
+
+import { itemsReducer, TAKE_KITCHEN_ITEM, TAKE_PANTRY_ITEM } from './reducers';
 
 const initialPantryItems = {
   Strawberries: 5,
@@ -21,36 +23,14 @@ const initialItems = {
 }
 
 const ItemsProvider = props => {
-  const [items, setItems] = useState(initialItems);
+  const [items, dispatch] = useReducer(itemsReducer, initialItems);
 
   const removePantryItem = (itemName) => {
-    const updatedItems = {
-      ...items,
-      pantryItems: {
-        ...items.pantryItems,
-        ...items.pantryItems[itemName] -= 1
-      },
-      kitchenItems: {
-        ...items.kitchenItems,
-        ...items.kitchenItems[itemName] += 1
-      }
-    }
-    setItems(updatedItems);
+    dispatch({ type: TAKE_PANTRY_ITEM, item: itemName });
   };
 
   const removeKitchenItem = (itemName) => {
-    const updatedItems = {
-      ...items,
-      pantryItems: {
-        ...items.pantryItems,
-        ...items.pantryItems[itemName] += 1
-      },
-      kitchenItems: {
-        ...items.kitchenItems,
-        ...items.kitchenItems[itemName] -= 1
-      }
-    }
-    setItems(updatedItems);
+    dispatch({ type: TAKE_KITCHEN_ITEM, item: itemName });
   };
 
   return (
